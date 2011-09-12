@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe SVG do
+describe Batik do
   it 'has proper version' do
-    SVG::VERSION.should eq '1.7'
+    Batik::VERSION.should eq '1.7'
   end
 end
