@@ -15,12 +15,12 @@ module Batik
       document.to_s
     end
 
-    def rectangle(options)
-      @elements << Rectangle.new(options)
+    def rectangle(attributes)
+      @elements << Rectangle.new(attributes)
     end
 
-    def circle(options)
-      @elements << Circle.new(options)
+    def circle(attributes)
+      @elements << Circle.new(attributes)
     end
   end
 end
