@@ -55,6 +55,15 @@ module Batik
 
         root.appendChild element
       end
+
+      def circle(options)
+        element = svg_document.createElementNS(SVGDOMImplementation::SVG_NAMESPACE_URI, 'circle')
+        options.each do |key, value|
+          element.setAttributeNS nil, key.to_s, value.to_s
+        end
+
+        root.appendChild element
+      end
     end
   end
 end

@@ -39,13 +39,23 @@ describe Batik::Document do
     class Rectangle
       include Batik::Document
 
-      width 100
-      height 100
-      rectangle :x => 10, :y => 20, :fill => 'red', :width => 20, :height => 30, :stroke => 2
+      rectangle :x => 10, :y => 20, :fill => 'red', :width => 20, :height => 30
     end
 
     it 'creates new rectangle object with the given options' do
-      Rectangle.new.to_svg.should match /<rect width="20" x="10" fill="red" height="30" y="20" stroke="2"\/>/
+      Rectangle.new.to_svg.should match /<rect width="20" x="10" fill="red" height="30" y="20"\/>/
+    end
+  end
+
+  describe '.circle' do
+    class Circle
+      include Batik::Document
+
+      circle :cx => 10, :cy => 10, :r => 20, :fill => 'blue'
+    end
+
+    it 'creates new circle object with the given options' do
+      Circle.new.to_svg.should match /<circle fill="blue" r="20" cx="10" cy="10"\/>/
     end
   end
 end
