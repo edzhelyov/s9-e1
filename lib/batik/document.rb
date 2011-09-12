@@ -46,6 +46,15 @@ module Batik
       def height(value)
         root.setAttributeNS nil, 'height', value.to_s
       end
+
+      def rectangle(options)
+        element = svg_document.createElementNS(SVGDOMImplementation::SVG_NAMESPACE_URI, 'rect')
+        options.each do |key, value|
+          element.setAttributeNS nil, key.to_s, value.to_s
+        end
+
+        root.appendChild element
+      end
     end
   end
 end

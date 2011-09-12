@@ -34,4 +34,18 @@ describe Batik::Document do
       Height.new.to_svg.should match /height="300"/
     end
   end
+
+  describe '.rectangle' do
+    class Rectangle
+      include Batik::Document
+
+      width 100
+      height 100
+      rectangle :x => 10, :y => 20, :fill => 'red', :width => 20, :height => 30, :stroke => 2
+    end
+
+    it 'creates new rectangle object with the given options' do
+      Rectangle.new.to_svg.should match /<rect width="20" x="10" fill="red" height="30" y="20" stroke="2"\/>/
+    end
+  end
 end
