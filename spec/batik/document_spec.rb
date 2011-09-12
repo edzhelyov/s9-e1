@@ -22,4 +22,16 @@ describe Batik::Document do
       Width.new.to_svg.should match /width="400"/
     end
   end
+
+  describe '.height' do
+    class Height
+      include Batik::Document
+
+      height 300
+    end
+
+    it "set the outer svg element's height" do
+      Height.new.to_svg.should match /height="300"/
+    end
+  end
 end

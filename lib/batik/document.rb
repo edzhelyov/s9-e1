@@ -44,6 +44,7 @@ module Batik
       end
 
       def height(value)
+        root.setAttributeNS nil, 'height', value.to_s
       end
     end
   end
