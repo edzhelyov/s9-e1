@@ -22,18 +22,28 @@ module Batik
     end
 
     module ClassMethods
-
       def svg_document
         @svg_document
       end
 
-      def svg_document=(text)
-        @svg_document = text
+      def svg_document=(doc)
+        @svg_document = doc
+      end
+
+      def root
+        svg_document.getDocumentElement
       end
 
       def initialize_svg_namespace
         dom = SVGDOMImplementation.getDOMImplementation
         self.svg_document = dom.createDocument SVGDOMImplementation::SVG_NAMESPACE_URI, "svg", nil
+      end
+
+      def width(value)
+        root.setAttributeNS nil, 'width', value.to_s
+      end
+
+      def height(value)
       end
     end
   end
