@@ -4,7 +4,8 @@
 
 I'm wrapping it into simple interface that allow creation of SVG images using a ruby block construct. The Batik's DOM interface is used, which means you can use the official [w3c specification](http://www.w3.org/TR/SVG/) to define elements.
 
-Currently supported:
+## Currently supported:
+
 * Rectangle
 * Circle
 * Text
