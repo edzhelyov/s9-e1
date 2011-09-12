@@ -39,7 +39,7 @@ describe Batik::SVG do
     end
   end
 
-  describe '.circle' do
+  describe '#circle' do
     let(:svg) do
       Batik::SVG.new do
         circle :cx => 10, :cy => 10, :r => 20, :fill => 'blue'
