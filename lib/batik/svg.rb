@@ -22,5 +22,9 @@ module Batik
     def circle(attributes)
       @elements << Circle.new(attributes)
     end
+
+    def text(attributes)
+      @elements << Text.new(attributes)
+    end
   end
 end

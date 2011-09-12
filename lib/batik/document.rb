@@ -26,9 +26,14 @@ module Batik
       elements.each do |object|
         element = @doc.createElementNS(SVGDOMImplementation::SVG_NAMESPACE_URI, object.type)
         set_attributes(element, object.attributes)
+        set_text(element, object) if object.type == 'text'
 
         @root.appendChild element
       end
+    end
+
+    def set_text(element, object)
+      element.appendChild(@doc.createTextNode(object.text))
     end
 
     def to_s

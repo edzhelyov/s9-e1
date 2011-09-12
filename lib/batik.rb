@@ -5,6 +5,7 @@ require 'batik/document'
 require 'batik/element'
 require 'batik/rectangle'
 require 'batik/circle'
+require 'batik/text'
 require 'batik/svg'
 
 module Batik

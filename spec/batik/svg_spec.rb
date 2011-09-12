@@ -33,7 +33,7 @@ describe Batik::SVG do
   describe '#rectangle' do
     let(:svg) { Batik::SVG.new }
 
-    it 'add new rect object' do
+    it 'add new rect element' do
       svg.rectangle :x => 10, :y => 20, :fill => 'red', :width => 20, :height => 30
       svg.to_s.should match /<rect width="20" x="10" fill="red" height="30" y="20"\/>/
     end
@@ -46,8 +46,20 @@ describe Batik::SVG do
       end
     end
 
-    it 'add new circle object' do
+    it 'add new circle element' do
       svg.to_s.should match /<circle fill="blue" r="20" cx="10" cy="10"\/>/
+    end
+  end
+
+  describe '#text' do
+    let(:svg) do
+      Batik::SVG.new do
+        text :x => 10, :y => 10, :body => 'SVG random text'
+      end
+    end
+
+    it 'add new text element' do
+      svg.to_s.should match '<text x="10" y="10">SVG random text</text>'
     end
   end
 end
