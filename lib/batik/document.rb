@@ -16,6 +16,7 @@ module Batik
     def to_svg
       document = create_svg_document
       set_root_attributes(document)
+      draw_all_elements(document)
 
       writer = StringWriter.new
 
@@ -36,34 +37,18 @@ module Batik
       end
     end
 
-#    def root
-#      svg_document.getDocumentElement
-#    end
-#
-#    def width(value)
-#      root.setAttributeNS nil, 'width', value.to_s
-#    end
-#
-#    def height(value)
-#      root.setAttributeNS nil, 'height', value.to_s
-#    end
-#
-#    def rectangle(options)
-#      element = svg_document.createElementNS(SVGDOMImplementation::SVG_NAMESPACE_URI, 'rect')
-#      options.each do |key, value|
-#        element.setAttributeNS nil, key.to_s, value.to_s
-#      end
-#
-#      root.appendChild element
-#    end
-#
-#    def circle(options)
-#      element = svg_document.createElementNS(SVGDOMImplementation::SVG_NAMESPACE_URI, 'circle')
-#      options.each do |key, value|
-#        element.setAttributeNS nil, key.to_s, value.to_s
-#      end
-#
-#      root.appendChild element
-#    end
+    def draw_all_elements(document)
+      @elements.each do |element|
+        element.draw_to(document)
+      end
+    end
+
+    def rectangle(options)
+      @elements << Rectangle.new(options)
+    end
+
+    def circle(options)
+      @elements << Circle.new(options)
+    end
   end
 end
