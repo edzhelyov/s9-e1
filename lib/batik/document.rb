@@ -5,12 +5,15 @@ module Batik
 
   class Document
     def initialize(root_attributes, elements)
+      create_document
+      set_attributes(@root, root_attributes)
+      create_and_append_elements(elements)
+    end
+
+    def create_document
       dom = SVGDOMImplementation.getDOMImplementation
       @doc = dom.createDocument SVGDOMImplementation::SVG_NAMESPACE_URI, "svg", nil
       @root = @doc.getDocumentElement
-
-      set_attributes(@root, root_attributes)
-      create_and_append_elements(elements)
     end
 
     def set_attributes(element, attributes)
