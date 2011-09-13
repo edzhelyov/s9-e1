@@ -6,6 +6,8 @@ svg = Batik::SVG.new(width: 200, height: 200) do
   circle cx: 10, cy: 170, r: 5, fill: 'black'
 end
 
+svg.text x: 40, y: 160, body: 'Signature at the bottom'
+
 File.open('rectangle_with_two_circles.svg', 'w+') do |file|
   file << svg.to_s
 end
