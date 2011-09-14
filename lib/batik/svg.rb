@@ -34,5 +34,9 @@ module Batik
     def ellipse(attributes)
       @elements << Ellipse.new(attributes)
     end
+
+    def polygon(attributes)
+      @elements << Polygon.new(attributes)
+    end
   end
 end

@@ -86,4 +86,16 @@ describe Batik::SVG do
       svg.to_s.should match '<ellipse rx="50" ry="20" cx="100" cy="100"/>'
     end
   end
+
+  describe '#polygon' do
+    let(:svg) do
+      Batik::SVG.new do
+        polygon :points => '0,20 20,0 40, 20', :fill => 'blue'
+      end
+    end
+
+    it 'add new ellipse element' do
+      svg.to_s.should match '<polygon fill="blue" points="0,20 20,0 40, 20"/>'
+    end
+  end
 end
