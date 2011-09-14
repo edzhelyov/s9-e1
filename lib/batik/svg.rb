@@ -26,5 +26,9 @@ module Batik
     def text(attributes)
       @elements << Text.new(attributes)
     end
+
+    def path(attributes)
+      @elements << Path.new(attributes)
+    end
   end
 end

@@ -7,6 +7,7 @@ require_relative 'batik/element'
 require_relative 'batik/rectangle'
 require_relative 'batik/circle'
 require_relative 'batik/text'
+require_relative 'batik/path'
 require_relative 'batik/svg'
 
 module Batik
