@@ -12,13 +12,13 @@ module Batik
 
     def create_document
       dom = SVGDOMImplementation.getDOMImplementation
-      @doc = dom.createDocument SVGDOMImplementation::SVG_NAMESPACE_URI, "svg", nil
+      @doc = dom.createDocument(SVGDOMImplementation::SVG_NAMESPACE_URI, "svg", nil)
       @root = @doc.getDocumentElement
     end
 
     def set_attributes(element, attributes)
       attributes.each do |key, value|
-        element.setAttributeNS nil, key.to_s, value.to_s
+        element.setAttributeNS(nil, key.to_s, value.to_s)
       end
     end
 
@@ -28,7 +28,7 @@ module Batik
         set_attributes(element, object.attributes)
         set_text(element, object) if object.type == 'text'
 
-        @root.appendChild element
+        @root.appendChild(element)
       end
     end
 
@@ -38,9 +38,7 @@ module Batik
 
     def to_s
       writer = StringWriter.new
-
-      DOMUtilities.writeDocument @doc, writer
-
+      DOMUtilities.writeDocument(@doc, writer)
       writer.to_s
     end
   end
