@@ -1,6 +1,7 @@
 require 'java'
 require_relative '../vendor/batik-1.7/batik.jar'
 
+require 'batik/attribute_methods'
 require 'batik/document'
 require 'batik/element'
 require 'batik/rectangle'
