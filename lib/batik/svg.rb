@@ -2,6 +2,8 @@ module Batik
   class SVG
     attr_reader :elements
 
+    include SVGElements
+
     def initialize(options = {}, &block)
       @root_attributes = options
       @elements = []
@@ -13,34 +15,6 @@ module Batik
       document = Document.new(@root_attributes, @elements)
 
       document.to_s
-    end
-
-    def rectangle(attributes)
-      @elements << Rectangle.new(attributes)
-    end
-
-    def circle(attributes)
-      @elements << Circle.new(attributes)
-    end
-
-    def text(attributes)
-      @elements << Text.new(attributes)
-    end
-
-    def path(attributes)
-      @elements << Path.new(attributes)
-    end
-
-    def ellipse(attributes)
-      @elements << Ellipse.new(attributes)
-    end
-
-    def polygon(attributes)
-      @elements << Polygon.new(attributes)
-    end
-
-    def image(attributes)
-      @elements << Image.new(attributes)
     end
   end
 end

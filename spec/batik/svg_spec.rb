@@ -111,4 +111,18 @@ describe Batik::SVG do
       svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
     end
   end
+
+  describe '#g' do
+    let(:svg) do
+      Batik::SVG.new do
+        g :fill => 'red' do
+          circle :cx => 10, :cy => 10, :r => 5
+        end
+      end
+    end
+
+    it 'add new g element with the nested elements in it' do
+      svg.to_s.should match '<g fill="red"><circle r="5" cx="10" cy="10"/></g>'
+    end
+  end
 end

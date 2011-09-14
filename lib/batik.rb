@@ -11,6 +11,8 @@ require_relative 'batik/path'
 require_relative 'batik/ellipse'
 require_relative 'batik/polygon'
 require_relative 'batik/image'
+require_relative 'batik/svg_elements'
+require_relative 'batik/g'
 require_relative 'batik/svg'
 
 module Batik
