@@ -30,5 +30,9 @@ module Batik
     def path(attributes)
       @elements << Path.new(attributes)
     end
+
+    def ellipse(attributes)
+      @elements << Ellipse.new(attributes)
+    end
   end
 end

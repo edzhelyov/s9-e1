@@ -74,4 +74,16 @@ describe Batik::SVG do
       svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 z" stroke="blue"/>'
     end
   end
+
+  describe '#ellipse' do
+    let(:svg) do
+      Batik::SVG.new do
+        ellipse :cx => 100, :cy => 100, :rx => 50, :ry => 20
+      end
+    end
+
+    it 'add new ellipse element' do
+      svg.to_s.should match '<ellipse rx="50" ry="20" cx="100" cy="100"/>'
+    end
+  end
 end
