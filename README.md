@@ -27,6 +27,10 @@ SVG elements that can be created include:
 * Rectangle
 * Circle
 * Text
+* Path
+* Ellipse
+* Polygon
+* G(roup)
 
 All of them support the standard attributes from the w3c specification. The Text element support additional attribute _body_ where you specify the actual text that will be displayed.
 
