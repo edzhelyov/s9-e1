@@ -10,6 +10,7 @@ require_relative 'batik/text'
 require_relative 'batik/path'
 require_relative 'batik/ellipse'
 require_relative 'batik/polygon'
+require_relative 'batik/image'
 require_relative 'batik/svg'
 
 module Batik

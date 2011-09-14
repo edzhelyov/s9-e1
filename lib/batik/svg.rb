@@ -38,5 +38,9 @@ module Batik
     def polygon(attributes)
       @elements << Polygon.new(attributes)
     end
+
+    def image(attributes)
+      @elements << Image.new(attributes)
+    end
   end
 end

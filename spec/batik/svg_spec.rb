@@ -98,4 +98,16 @@ describe Batik::SVG do
       svg.to_s.should match '<polygon fill="blue" points="0,20 20,0 40, 20"/>'
     end
   end
+
+  describe '#image' do
+    let(:svg) do
+      Batik::SVG.new do
+        image :x => 10, :y => 10, :width => 73, :height => 73, :href => 'sample.png'
+      end
+    end
+
+    it 'add new ellipse element' do
+      svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
+    end
+  end
 end
