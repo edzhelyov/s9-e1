@@ -11,6 +11,14 @@ module Batik
         def self.type
           @type
         end
+
+        def self.register(method_name) 
+          Batik::SVGElements.module_eval <<-EOF
+            def \#{method_name}(attributes)
+              @elements << \#{name}.new(attributes)
+            end
+          EOF
+        end
       EOS
     end
 

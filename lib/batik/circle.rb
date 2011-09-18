@@ -3,5 +3,6 @@ module Batik
     include Element
 
     set_type 'circle'
+    register 'circle'
   end
 end

@@ -5,6 +5,7 @@ module Batik
     include Element
 
     set_type 'text'
+    register 'text'
 
     def initialize(attributes = {})
       super

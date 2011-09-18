@@ -3,6 +3,7 @@ module Batik
     include Element
 
     set_type 'image'
+    register 'image'
 
     def initialize(attributes = {})
       super

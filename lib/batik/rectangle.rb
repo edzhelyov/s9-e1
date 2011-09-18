@@ -3,5 +3,6 @@ module Batik
     include Element 
 
     set_type 'rect'
+    register 'rectangle'
   end
 end
