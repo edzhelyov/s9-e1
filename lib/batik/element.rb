@@ -4,7 +4,7 @@ module Batik
 
     include AttributeMethods
 
-    def initialize(attributes)
+    def initialize(attributes = {})
       @attributes = attributes
     end
 
