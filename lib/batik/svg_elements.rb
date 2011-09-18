@@ -29,7 +29,7 @@ module Batik
     end
 
     def g(attributes, &block)
-      @elements << G.new(attributes, &block)
+      @elements << Group.new(attributes, &block)
     end
   end
 end

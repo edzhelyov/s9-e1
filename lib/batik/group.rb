@@ -1,5 +1,5 @@
 module Batik
-  class G < Element
+  class Group < Element
     attr_reader :elements
 
     include SVGElements
