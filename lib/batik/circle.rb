@@ -1,5 +1,7 @@
 module Batik
-  class Circle < Element
+  class Circle
+    include Element
+
     def initialize(attributes)
       super
       @type = 'circle'

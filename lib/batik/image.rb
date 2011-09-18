@@ -1,5 +1,7 @@
 module Batik
-  class Image < Element
+  class Image
+    include Element
+
     def initialize(attributes)
       super
       @type = 'image'

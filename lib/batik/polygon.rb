@@ -1,5 +1,7 @@
 module Batik
-  class Polygon < Element
+  class Polygon
+    include Element 
+
     def initialize(attributes)
       super
       @type = 'polygon'

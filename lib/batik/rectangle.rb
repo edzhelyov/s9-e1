@@ -1,5 +1,7 @@
 module Batik
-  class Rectangle < Element
+  class Rectangle
+    include Element 
+
     def initialize(attributes)
       super
       @type = 'rect'

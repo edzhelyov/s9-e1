@@ -1,5 +1,7 @@
 module Batik
-  class Text < Element
+  class Text
+    include Element
+
     attr_reader :text
 
     def initialize(attributes)

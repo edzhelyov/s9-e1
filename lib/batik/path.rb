@@ -1,5 +1,7 @@
 module Batik
-  class Path < Element
+  class Path
+    include Element
+
     def initialize(attributes)
       super
       @type = 'path'

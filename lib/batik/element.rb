@@ -1,6 +1,14 @@
 module Batik
-  class Element
-    attr_reader :type, :attributes
+  module Element
+    def self.included(base)
+      base.class_eval <<-EOS
+        attr_reader :type, :attributes
+
+        def self.type(name)
+          @type = name
+        end
+      EOS
+    end
 
     include AttributeMethods
 
@@ -13,6 +21,10 @@ module Batik
       set_attributes(batik_element, attributes)
 
       batik_element
+    end
+
+    def type
+      self.class.type
     end
   end
 end
