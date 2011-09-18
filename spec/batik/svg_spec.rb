@@ -115,7 +115,7 @@ describe Batik::SVG do
   describe '#g' do
     let(:svg) do
       Batik::SVG.new do
-        g :fill => 'red' do
+        group :fill => 'red' do
           circle :cx => 10, :cy => 10, :r => 5
         end
       end

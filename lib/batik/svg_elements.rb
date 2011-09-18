@@ -1,6 +1,6 @@
 module Batik
   module SVGElements
-    def g(attributes, &block)
+    def group(attributes, &block)
       @elements << Group.new(attributes, &block)
     end
   end
