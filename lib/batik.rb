@@ -1,6 +1,7 @@
 require 'java'
 require_relative '../vendor/batik-1.7/batik.jar'
 
+require_relative 'batik/version'
 require_relative 'batik/attribute_methods'
 require_relative 'batik/document'
 require_relative 'batik/element'
@@ -14,9 +15,3 @@ require_relative 'batik/image'
 require_relative 'batik/svg_elements'
 require_relative 'batik/g'
 require_relative 'batik/svg'
-
-module Batik
-  import org.apache.batik
-
-  VERSION = Version.getVersion()
-end
