@@ -2,9 +2,6 @@ module Batik
   class Ellipse
     include Element
 
-    def initialize(attributes)
-      super
-      @type = 'ellipse'
-    end
+    set_type 'ellipse'
   end
 end

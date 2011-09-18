@@ -1,14 +1,14 @@
 module Batik
   class Group
-    include Element 
-
     attr_reader :elements
 
+    include Element 
     include SVGElements
 
-    def initialize(attributes, &block)
+    set_type 'g'
+
+    def initialize(attributes = {}, &block)
       super
-      @type = 'g'
       @elements = []
 
       instance_exec(&block) if block_given?

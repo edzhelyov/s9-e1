@@ -2,10 +2,14 @@ module Batik
   module Element
     def self.included(base)
       base.class_eval <<-EOS
-        attr_reader :type, :attributes
+        attr_reader :attributes
 
-        def self.type(name)
+        def self.set_type(name)
           @type = name
+        end
+
+        def self.type
+          @type
         end
       EOS
     end

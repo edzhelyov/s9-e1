@@ -2,9 +2,10 @@ module Batik
   class Image
     include Element
 
-    def initialize(attributes)
+    set_type 'image'
+
+    def initialize(attributes = {})
       super
-      @type = 'image'
       convert_href_attribute
     end
 

@@ -1,13 +1,14 @@
 module Batik
   class Text
-    include Element
-
     attr_reader :text
 
-    def initialize(attributes)
-      @text = attributes.delete(:body)
+    include Element
+
+    set_type 'text'
+
+    def initialize(attributes = {})
       super
-      @type = 'text'
+      @text = @attributes.delete(:body)
     end
 
     def to_batik_element(doc)
