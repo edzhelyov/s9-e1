@@ -6,6 +6,7 @@ module Batik
     include SVGElements
 
     set_type 'g'
+    register_with_block 'group'
 
     def initialize(attributes = {}, &block)
       super

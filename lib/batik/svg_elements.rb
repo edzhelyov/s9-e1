@@ -6,8 +6,10 @@ module Batik
       end
     end
 
-    def group(attributes, &block)
-      @elements << Group.new(attributes, &block)
+    def self.register_with_block(method_name, klass)
+      define_method method_name.to_sym do |attributes, &block|
+        @elements << klass.new(attributes, &block)
+      end
     end
   end
 end
