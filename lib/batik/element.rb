@@ -15,11 +15,7 @@ module Batik
       end
 
       def register(method_name)
-        Batik::SVGElements.module_eval <<-EOF
-          def #{method_name}(attributes)
-            @elements << #{name}.new(attributes)
-          end
-        EOF
+        Batik::SVGElements.register(method_name, self)
       end
     end
 
