@@ -1,10 +1,8 @@
 module Batik
   module Element
     def self.included(base)
-      base.module_eval do
-        extend ClassMethods
-        include InstanceMethods
-      end
+      base.extend ClassMethods
+      base.send(:include, InstanceMethods)
     end
 
     module ClassMethods
