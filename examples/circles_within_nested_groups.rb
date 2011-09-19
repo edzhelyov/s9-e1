@@ -1,6 +1,6 @@
 require 'batik'
 
-svg = Batik::SVG.new(width: 400, height: 400) do
+Batik::SVG.draw('circles_within_nested_groups.svg', width: 400, height: 400) do
   group :fill => 'red' do
     circle :cx => 100, :cy => 100, :r => 50
     group :stroke => 'black', 'stroke-width' => 15 do
@@ -10,8 +10,4 @@ svg = Batik::SVG.new(width: 400, height: 400) do
       end
     end
   end
-end
-
-File.open('circles_within_nested_groups.svg', 'w+') do |file|
-  file << svg.to_s
 end
