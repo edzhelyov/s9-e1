@@ -38,6 +38,32 @@ All of them support the standard attributes from the w3c specification. The Text
 
 Additional block syntax is available for all elements. Instead of specifying the attributes as hash you can do that in a block. The attributes are grouped into logical method and differ from the w3c specification names.
 
+The example from above will become:
+
+    svg = Batik::SVG.new(width: 200, height: 200) do
+      rectangle do
+        coordinates 10, 10
+        dimensions 100, 180
+        color :fill => 'cyan'
+      end
+      circle do
+        coordinates 10, 20
+        radius 5
+        color :fill => 'black'
+      end
+      circle do
+        coordinates 10, 170
+        radius 5
+        fill => 'black'
+      end
+    end
+
+    svg.text do
+      coordinates 40, 160
+      body 'Signature at the bottom'
+    end
+
+
 Here is complete list of the methods that are available in the block:
 
 * `coordinates(x, y)` - coordinate of the top-left point for rectangular objects or the center for circular
