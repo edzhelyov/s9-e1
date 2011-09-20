@@ -34,6 +34,33 @@ SVG elements that can be created include:
 
 All of them support the standard attributes from the w3c specification. The Text element support additional attribute _body_ where you specify the actual text that will be displayed.
 
+## Block syntax
+
+Additional block syntax is available for all elements. Instead of specifying the attributes as hash you can do that in a block. The attributes are grouped into logical method and differ from the w3c specification names.
+
+Here is complete list of the methods that is available in the block:
+
+* `coordinates(x, y)` - coordinate of the top-left point for rectangular objects or the center for circular
+* `dimensions(width, height)` - the width and height of the object
+* `color(options)` - current options are: `fill` and `stroke` 
+* `translate(tx, ty = 0)` - translates the object to the given coordinates
+* `scale(sx, sy = sx)` - scales the object's x and y axises
+* `rotate(angle)` - rotates on given angle
+* `radius(r)` - radius of circle
+* `radius(rx, ry)` - radius of ellipse
+* `link(href)` - image's link
+* `body(text)` - actual text body
+
+List of specific `path` commands:
+
+* `move(x, y)`
+* `line(x, y)`
+* `horizontal_line(x)`
+* `vertical_line(y)`
+* `curve(x1, y1, x2, y2, x, y)
+* `smooth_curve(x2, y2, x, y)
+* `close`
+
 ## Setup
 
 1. Use jruby, version 1.6
