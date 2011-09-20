@@ -1,6 +1,11 @@
 module Batik
   class Text
     include Element
+    include ElementAttributes::Coordinates
+
+    def body(text)
+      @attributes[:body] = text
+    end
 
     set_type 'text'
     register 'text'

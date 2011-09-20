@@ -1,6 +1,12 @@
 module Batik
   class Image
     include Element
+    include ElementAttributes::Coordinates
+    include ElementAttributes::Dimension
+
+    def link(href)
+      @attributes['xlink-href'] = href
+    end
 
     set_type 'image'
     register 'image'

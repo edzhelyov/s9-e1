@@ -23,7 +23,7 @@ module Batik
       attr_reader :attributes
 
       include AttributeMethods
-      include ElementAttributes
+      include ElementAttributes::Color
 
       def initialize(attributes = {}, &block)
         @attributes = attributes
