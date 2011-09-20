@@ -67,5 +67,9 @@ module Batik
       @attributes[:d] ||= ""
       @attributes[:d] += "Z "
     end
+
+    def link(href)
+      @attributes['xlink-href'] = href
+    end
   end
 end

@@ -92,4 +92,21 @@ describe 'Batik::SVG with block interface' do
       svg.to_s.should match '<ellipse rx="50" ry="20" cx="100" cy="100"/>'
     end
   end
+
+  describe '#image' do
+    let(:svg) do
+      Batik::SVG.new do
+        image do
+          coordinates 10, 10
+          dimensions 73, 73
+          link 'sample.png'
+        end
+      end
+    end
+
+    it 'add new ellipse element' do
+      pending 'Have actual example that is working ...'
+      svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
+    end
+  end
 end
