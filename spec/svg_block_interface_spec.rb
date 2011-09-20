@@ -14,17 +14,6 @@ describe 'Batik::SVG with block interface' do
     end
   end
 
-  describe 'pending features' do
-    it 'transform' do
-      pending 'test transformations'
-    end
-
-    it 'only one coordinate' do
-      pending 'Decide what to do for coordinates 10, etc'
-    end
-
-  end
-
   describe '#circle' do
     let(:svg) do
       Batik::SVG.new do
@@ -125,6 +114,22 @@ describe 'Batik::SVG with block interface' do
 
     it 'add new g element with the nested elements in it' do
       svg.to_s.should match '<g fill="red"><circle r="5" cx="10" cy="10"/></g>'
+    end
+  end
+
+  describe 'transformation' do
+    let(:svg) do
+      Batik::SVG.new do
+        group do
+          translate 30, 30
+          scale 2, 5
+          rotate 30
+        end
+      end
+    end
+
+    it 'add corresponding transformation attributes' do
+      svg.to_s.should match '<g transform="translate\(30, 30\) scale\(2, 5\) rotate\(30\) "/>'
     end
   end
 end

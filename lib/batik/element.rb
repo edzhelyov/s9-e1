@@ -24,6 +24,7 @@ module Batik
 
       include AttributeMethods
       include ElementAttributes::Color
+      include ElementAttributes::Transformations
 
       def initialize(attributes = {}, &block)
         @attributes = attributes
