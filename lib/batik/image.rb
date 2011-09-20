@@ -12,7 +12,7 @@ module Batik
 
     def convert_href_attribute
       href = @attributes.delete(:href) || @attributes.delete('href')
-      @attributes['xlink-href'] = href
+      @attributes['xlink-href'] = href if href
     end
   end
 end

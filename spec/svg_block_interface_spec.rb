@@ -104,9 +104,9 @@ describe 'Batik::SVG with block interface' do
       end
     end
 
-    it 'add new ellipse element' do
-      pending 'Have actual example that is working ...'
-      svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
+    it 'add new image element' do
+      p svg.elements.first.attributes
+#      svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
     end
   end
 
