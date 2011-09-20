@@ -14,6 +14,17 @@ describe 'Batik::SVG with block interface' do
     end
   end
 
+  describe 'pending features' do
+    it 'transform' do
+      pending 'test transformations'
+    end
+
+    it 'only one coordinate' do
+      pending 'Decide what to do for coordinates 10, etc'
+    end
+
+  end
+
   describe '#circle' do
     let(:svg) do
       Batik::SVG.new do
@@ -27,6 +38,21 @@ describe 'Batik::SVG with block interface' do
 
     it 'add new circle element' do
       svg.to_s.should match '<circle fill="blue" r="20" cx="10" cy="10"/>'
+    end
+  end
+
+  describe '#text' do
+    let(:svg) do
+      Batik::SVG.new do
+        text do
+          coordinates 10, 10
+          body 'SVG random text'
+        end
+      end
+    end
+
+    it 'add new text element' do
+      svg.to_s.should match '<text x="10" y="10">SVG random text</text>'
     end
   end
 end

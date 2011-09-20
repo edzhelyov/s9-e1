@@ -23,5 +23,9 @@ module Batik
     def radius(r)
       @attributes[:r] = r
     end
+
+    def body(text)
+      @attributes[:body] = text
+    end
   end
 end
