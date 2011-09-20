@@ -114,7 +114,7 @@ describe 'Batik::SVG with block interface' do
     let(:svg) do
       Batik::SVG.new do
         group do 
-          fill 'red'
+          color :fill => 'red'
 
           circle do
             coordinates 10, 10
