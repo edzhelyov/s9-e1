@@ -63,6 +63,10 @@ describe 'Batik::SVG with block interface' do
           move 100, 100
           line 300, 100
           line 200, 300
+          horizontal_line 300
+          vertical_line 100
+          curve 10, 10, 20, 20, 30, 30
+          smooth_curve 10, 10, 20, 20
           close
           color :fill => 'red', :stroke => 'blue'
         end
@@ -70,7 +74,7 @@ describe 'Batik::SVG with block interface' do
     end
 
     it 'add new path element' do
-      svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 Z " stroke="blue"/>'
+      svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 H 300 V 100 C 10 10 20 20 30 30 S 10 10 20 20 Z " stroke="blue"/>'
     end
   end
 end

@@ -15,7 +15,7 @@ module Batik
       @attributes[:height] = height
     end
 
-    def color(options = {})
+    def color(options)
       @attributes[:fill] = options[:fill] if options[:fill]
       @attributes[:stroke] = options[:stroke] if options[:stroke]
     end
@@ -36,6 +36,26 @@ module Batik
     def line(x, y)
       @attributes[:d] ||= ""
       @attributes[:d] += "L #{x} #{y} "
+    end
+
+    def horizontal_line(x)
+      @attributes[:d] ||= ""
+      @attributes[:d] += "H #{x} "
+    end
+
+    def vertical_line(y)
+      @attributes[:d] ||= ""
+      @attributes[:d] += "V #{y} "
+    end
+
+    def curve(x1, y1, x2, y2, x, y)
+      @attributes[:d] ||= ""
+      @attributes[:d] += "C #{x1} #{y1} #{x2} #{y2} #{x} #{y} "
+    end
+
+    def smooth_curve(x2, y2, x, y)
+      @attributes[:d] ||= ""
+      @attributes[:d] += "S #{x2} #{y2} #{x} #{y} "
     end
 
     def close
