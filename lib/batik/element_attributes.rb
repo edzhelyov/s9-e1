@@ -27,5 +27,20 @@ module Batik
     def body(text)
       @attributes[:body] = text
     end
+
+    def move(x, y)
+      @attributes[:d] ||= ""
+      @attributes[:d] += "M #{x} #{y} "
+    end
+
+    def line(x, y)
+      @attributes[:d] ||= ""
+      @attributes[:d] += "L #{x} #{y} "
+    end
+
+    def close
+      @attributes[:d] ||= ""
+      @attributes[:d] += "Z "
+    end
   end
 end

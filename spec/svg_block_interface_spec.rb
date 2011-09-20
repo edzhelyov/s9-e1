@@ -55,4 +55,22 @@ describe 'Batik::SVG with block interface' do
       svg.to_s.should match '<text x="10" y="10">SVG random text</text>'
     end
   end
+
+  describe '#path' do
+    let(:svg) do
+      Batik::SVG.new do
+        path do
+          move 100, 100
+          line 300, 100
+          line 200, 300
+          close
+          color :fill => 'red', :stroke => 'blue'
+        end
+      end
+    end
+
+    it 'add new path element' do
+      svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 Z " stroke="blue"/>'
+    end
+  end
 end
