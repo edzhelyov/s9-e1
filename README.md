@@ -38,7 +38,7 @@ All of them support the standard attributes from the w3c specification. The Text
 
 Additional block syntax is available for all elements. Instead of specifying the attributes as hash you can do that in a block. The attributes are grouped into logical method and differ from the w3c specification names.
 
-Here is complete list of the methods that is available in the block:
+Here is complete list of the methods that are available in the block:
 
 * `coordinates(x, y)` - coordinate of the top-left point for rectangular objects or the center for circular
 * `dimensions(width, height)` - the width and height of the object
@@ -57,8 +57,8 @@ List of specific `path` commands:
 * `line(x, y)`
 * `horizontal_line(x)`
 * `vertical_line(y)`
-* `curve(x1, y1, x2, y2, x, y)
-* `smooth_curve(x2, y2, x, y)
+* `curve(x1, y1, x2, y2, x, y)`
+* `smooth_curve(x2, y2, x, y)`
 * `close`
 
 ## Setup
