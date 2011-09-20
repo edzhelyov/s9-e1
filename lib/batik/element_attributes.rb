@@ -19,5 +19,9 @@ module Batik
       @attributes[:fill] = options[:fill] if options[:fill]
       @attributes[:stroke] = options[:stroke] if options[:stroke]
     end
+
+    def radius(r)
+      @attributes[:r] = r
+    end
   end
 end
