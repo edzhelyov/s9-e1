@@ -77,4 +77,19 @@ describe 'Batik::SVG with block interface' do
       svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 H 300 V 100 C 10 10 20 20 30 30 S 10 10 20 20 Z " stroke="blue"/>'
     end
   end
+
+  describe '#ellipse' do
+    let(:svg) do
+      Batik::SVG.new do
+        ellipse do
+          coordinates 100, 100
+          radius 50, 20
+        end
+      end
+    end
+
+    it 'add new ellipse element' do
+      svg.to_s.should match '<ellipse rx="50" ry="20" cx="100" cy="100"/>'
+    end
+  end
 end

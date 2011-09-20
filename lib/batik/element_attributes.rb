@@ -1,7 +1,7 @@
 module Batik
   module ElementAttributes
     def coordinates(x, y)
-      if type == 'circle'
+      if ['circle', 'ellipse'].include?(type)
         @attributes[:cx] = x
         @attributes[:cy] = y
       else
@@ -20,8 +20,13 @@ module Batik
       @attributes[:stroke] = options[:stroke] if options[:stroke]
     end
 
-    def radius(r)
-      @attributes[:r] = r
+    def radius(r, ry = nil)
+      if ry # ellipse
+        @attributes[:rx] = r
+        @attributes[:ry] = ry
+      else
+        @attributes[:r] = r
+      end
     end
 
     def body(text)
