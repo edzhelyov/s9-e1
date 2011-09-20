@@ -6,13 +6,12 @@ module Batik
     include SVGElements
 
     set_type 'g'
-    register_with_block 'group'
+    register 'group'
 
     def initialize(attributes = {}, &block)
-      super
       @elements = []
 
-      instance_exec(&block) if block_given?
+      super
     end
 
     def to_batik_element(doc)

@@ -3,6 +3,7 @@ require_relative '../vendor/batik-1.7/batik.jar'
 
 require_relative 'batik/version'
 require_relative 'batik/attribute_methods'
+require_relative 'batik/element_attributes'
 require_relative 'batik/svg_elements'
 require_relative 'batik/document'
 require_relative 'batik/element'

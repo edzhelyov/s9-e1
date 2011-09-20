@@ -17,19 +17,18 @@ module Batik
       def register(method_name)
         Batik::SVGElements.register(method_name, self)
       end
-
-      def register_with_block(method_name)
-        Batik::SVGElements.register_with_block(method_name, self)
-      end
     end
 
     module InstanceMethods
       attr_reader :attributes
 
       include AttributeMethods
+      include ElementAttributes
 
-      def initialize(attributes = {})
+      def initialize(attributes = {}, &block)
         @attributes = attributes
+
+        instance_exec(&block) if block_given?
       end
 
       def to_batik_element(doc)
