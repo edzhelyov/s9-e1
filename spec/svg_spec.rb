@@ -1,6 +1,25 @@
 require 'spec_helper'
 
 describe Batik::SVG do
+  describe '.draw' do
+    let(:filename) { 'batik-example.svg' }
+
+    after :each do
+      File.unlink(filename)
+    end
+
+    it 'save the svg do a given file' do
+      Batik::SVG.draw filename, :width => 100 do
+        circle :cx => 10, :cy => 10, :r => 5
+      end
+
+      content = File.read(filename)
+
+      content.should match 'width="100"'
+      content.should match '<circle r="5" cx="10" cy="10"/>'
+    end
+  end
+
   context 'when created' do
     it 'accept options' do
       Batik::SVG.new(:width => 500)
