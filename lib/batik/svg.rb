@@ -4,18 +4,11 @@ module Batik
 
     include SVGElements
 
-    def self.draw(*args, &block)
-      options = extract_options(args)
-      filename = args.first
-
+    def self.draw(filename, options = {}, &block)
       svg = new(options, &block)
 
-      if filename
-        File.open(filename, 'w+') do |file|
-          file << svg.to_s
-        end
-      else
-        svg.to_s
+      File.open(filename, 'w+') do |file|
+        file << svg.to_s
       end
     end
 
@@ -30,15 +23,6 @@ module Batik
       document = Document.new(@root_attributes, @elements)
 
       document.to_s
-    end
-
-    private
-    def self.extract_options(args)
-      if args.last.is_a?(Hash)
-        args.pop
-      else
-        {}
-      end
     end
   end
 end
