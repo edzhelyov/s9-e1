@@ -33,7 +33,8 @@ module Batik
       end
 
       def to_batik_element(doc)
-        batik_element = doc.createElementNS(SVGDOMImplementation::SVG_NAMESPACE_URI, type)
+        namespace = SVGDOMImplementation::SVG_NAMESPACE_URI
+        batik_element = doc.createElementNS(namespace, type)
         set_attributes(batik_element, attributes)
 
         batik_element
