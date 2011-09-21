@@ -10,7 +10,9 @@ describe 'Batik::SVG with block interface' do
         dimensions 20, 30
         color :fill => 'red'
       end
-      svg.to_s.should match '<rect fill="red" x="10" width="20" height="30" y="20"/>'
+
+      svg.to_s.should match 'rect.*fill="red".*x="10".*y="20"'
+      svg.to_s.should match 'rect.*width="20".*height="30"'
     end
   end
 
@@ -63,7 +65,9 @@ describe 'Batik::SVG with block interface' do
     end
 
     it 'add new path element' do
-      svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 H 300 V 100 C 10 10 20 20 30 30 S 10 10 20 20 Z " stroke="blue"/>'
+      svg.to_s.should match 'path fill="red" d=".*" stroke="blue"'
+      svg.to_s.should match 'd="M 100 100 L 300 100 L 200 300 H 300 V 100 '
+      svg.to_s.should match 'd=.* C 10 10 20 20 30 30 S 10 10 20 20 Z "'
     end
   end
 
@@ -94,7 +98,7 @@ describe 'Batik::SVG with block interface' do
     end
 
     it 'add new image element' do
-      svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
+      svg.to_s.should match 'image x="10" y="10" width="73"'
     end
   end
 
@@ -129,7 +133,8 @@ describe 'Batik::SVG with block interface' do
     end
 
     it 'add corresponding transformation attributes' do
-      svg.to_s.should match '<g transform="translate\(30, 30\) scale\(2, 5\) rotate\(30\) "/>'
+      svg.to_s.should match 'g transform="translate.* scale.* rotate.* "'
+      svg.to_s.should match '"translate\(30, 30\) scale\(2, 5\) rotate\(30\) "'
     end
   end
 end
