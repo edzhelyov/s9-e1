@@ -14,7 +14,6 @@ describe Batik::SVG do
       end
 
       content = File.read(filename)
-
       content.should match 'width="100"'
       content.should match '<circle r="5" cx="10" cy="10"/>'
     end
@@ -53,8 +52,11 @@ describe Batik::SVG do
     let(:svg) { Batik::SVG.new }
 
     it 'add new rect element' do
-      svg.rectangle :x => 10, :y => 20, :fill => 'red', :width => 20, :height => 30
-      svg.to_s.should match '<rect width="20" x="10" fill="red" height="30" y="20"/>'
+      svg.rectangle :x => 10, :y => 20, :fill => 'red', :width => 20,
+                    :height => 30
+
+      svg.to_s.should match 'rect.*width="20".*height="30"'
+      svg.to_s.should match 'rect.*x="10".*fill="red".*y="20"'
     end
   end
 
@@ -85,12 +87,14 @@ describe Batik::SVG do
   describe '#path' do
     let(:svg) do
       Batik::SVG.new do
-        path :d => 'M 100 100 L 300 100 L 200 300 z', :fill => 'red', :stroke => 'blue'
+        path :d => 'M 100 100 L 300 100 L 200 300 z', :fill => 'red',
+             :stroke => 'blue'
       end
     end
 
     it 'add new path element' do
-      svg.to_s.should match '<path fill="red" d="M 100 100 L 300 100 L 200 300 z" stroke="blue"/>'
+      svg.to_s.should match 'path fill="red" d="M 100 100 L 300 100 L 200 300 z'
+      svg.to_s.should match 'stroke="blue"'
     end
   end
 
@@ -121,13 +125,14 @@ describe Batik::SVG do
   describe '#image' do
     let(:svg) do
       Batik::SVG.new do
-        image :x => 10, :y => 10, :width => 73, :height => 73, :href => 'sample.png'
+        image :x => 10, :y => 10, :width => 73, :height => 73,
+              :href => 'sample.png'
       end
     end
 
     it 'add new image element' do
       pending 'Have actual example that is working ...'
-      svg.to_s.should match '<image x="10" y="10" width="73" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:actuate="onLoad" height="73" preserveAspectRatio="xMidYMid meet" xlink:show="embed" xlink-href="sample.png"/>'
+      svg.to_s.should match 'image x="10" y="10" width="73"'
     end
   end
 
