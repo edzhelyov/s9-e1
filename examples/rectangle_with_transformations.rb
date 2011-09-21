@@ -1,4 +1,4 @@
-require 'batik'
+require_relative '../lib/batik'
 
 Batik::SVG.draw('rectangle_with_transofrmations.svg', width: 400, height: 400) do
   group do

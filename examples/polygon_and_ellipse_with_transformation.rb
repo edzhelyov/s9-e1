@@ -1,4 +1,4 @@
-require 'batik'
+require_relative '../lib/batik'
 
 Batik::SVG.draw('polygon_and_ellipse_with_transformation.svg', width: '1200', height: '400') do
   polygon :fill => 'red', :points => '850,75  958,137.5 958,262.5 850,325 742,262.6 742,137.5'

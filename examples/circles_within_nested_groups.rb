@@ -1,4 +1,4 @@
-require 'batik'
+require_relative '../lib/batik'
 
 Batik::SVG.draw('circles_within_nested_groups.svg', width: 400, height: 400) do
   group :fill => 'red' do

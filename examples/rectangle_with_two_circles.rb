@@ -1,4 +1,4 @@
-require 'batik'
+require_relative '../lib/batik'
 
 svg = Batik::SVG.new(width: 200, height: 200) do
   rectangle x: 10, y: 10, width: 180, height: 180, fill: 'cyan'
