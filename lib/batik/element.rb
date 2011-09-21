@@ -1,9 +1,5 @@
 module Batik
-  module Element
-    def self.included(base)
-      base.extend ClassMethods
-      base.send(:include, InstanceMethods)
-    end
+  class Element
 
     module ClassMethods
       def set_type(name)
@@ -44,5 +40,8 @@ module Batik
         self.class.type
       end
     end
+
+    extend ClassMethods
+    include InstanceMethods
   end
 end

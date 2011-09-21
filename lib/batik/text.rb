@@ -1,6 +1,5 @@
 module Batik
-  class Text
-    include Element
+  class Text < Element
     include ElementAttributes::Coordinates
 
     def body(text)

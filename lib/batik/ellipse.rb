@@ -1,6 +1,5 @@
 module Batik
-  class Ellipse
-    include Element
+  class Ellipse < Element
     include ElementAttributes::CircleCoordinates
 
     def radius(rx, ry)

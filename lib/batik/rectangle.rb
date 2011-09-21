@@ -1,6 +1,5 @@
 module Batik
-  class Rectangle
-    include Element 
+  class Rectangle < Element
     include ElementAttributes::Coordinates
     include ElementAttributes::Dimension
 

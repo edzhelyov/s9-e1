@@ -1,7 +1,5 @@
 module Batik
-  class Path
-    include Element
-
+  class Path < Element
     def move(x, y)
       @attributes[:d] ||= ""
       @attributes[:d] += "M #{x} #{y} "

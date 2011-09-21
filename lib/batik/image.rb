@@ -1,6 +1,5 @@
 module Batik
-  class Image
-    include Element
+  class Image < Element
     include ElementAttributes::Coordinates
     include ElementAttributes::Dimension
 

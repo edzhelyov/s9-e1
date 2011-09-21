@@ -1,7 +1,5 @@
 module Batik
-  class Polygon
-    include Element 
-
+  class Polygon < Element
     set_type 'polygon'
     register 'polygon'
   end

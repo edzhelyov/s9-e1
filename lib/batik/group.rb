@@ -1,8 +1,7 @@
 module Batik
-  class Group
+  class Group < Element
     attr_reader :elements
 
-    include Element 
     include SVGElements
 
     set_type 'g'

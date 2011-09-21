@@ -1,6 +1,5 @@
 module Batik
-  class Circle
-    include Element
+  class Circle < Element
     include ElementAttributes::CircleCoordinates
 
     def radius(r)
